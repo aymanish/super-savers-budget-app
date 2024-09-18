@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Savings{% endblock %}
+
+{% block content %}
+<h2>Your Savings Goals</h2>
+
+{% if savings_goals %}
+    <div class="list-group">
+        {% for goal in savings_goals %}
+            <div class="mb-3">
+                <p><strong>{{ goal[0] }}</strong>: £{{ "%.2f" % goal[2] }} of £{{ "%.2f" % goal[1] }} saved</p>
+                <p><small>{{ goal[3] }} to {{ goal[4] }}</small></p>
+                
+                <!-- Calculate progress percentage first and apply it here -->
+                {% set progress_percentage = (goal[2] / goal[1]) * 100 %}
+                
+                <div class="progress" style="width: 50%; position: relative;">
+                    <div class="progress-bar" role="progressbar" style="width: {{ progress_percentage }}%;" aria-valuenow="{{ progress_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    <!-- Text inside progress bar without affecting bar width -->
+                    <span style="position: absolute; left: 50%; top: 0; width: 100%; text-align: center; transform: translateX(-50%); color: black;">
+                        £{{ "%.2f" % goal[2] }} / £{{ "%.2f" % goal[1] }}
+                    </span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Button to trigger savings update manually -->
+    <div class="container">
+      <button onclick="window.location.href='/update_savings';" class="btn btn-primary">
+          Simulate Daily Update
+      </button>
+    </div>
+    
+{% else %}
+    <p>You have no savings goals yet. <a href="{{ url_for('home') }}">Create one</a>.</p>
+{% endif %}
+{% endblock %}

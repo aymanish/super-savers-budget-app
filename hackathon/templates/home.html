@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ username }}</h2>
+
+<!--Financial info display-->
+<!-- Show financial info or prompt user to update profile -->
+<div>
+    <h4>Your Financial Information:</h4>
+    <ul>
+      <li>Income: {{ income if income else "Please go to profile and update your financial information." }}</li>
+      <li>Monthly Expenses: {{ monthly_expenses if monthly_expenses else "Please go to profile and update your financial information." }}</li>
+      <li>Current Deposit: {{ current_deposit if current_deposit else "Please go to profile and update your financial information." }}</li>
+      <li>TOTAL SAVED: {{ total_saved if total_saved else "Please go to profile and update your financial information." }}</li>
+    </ul>
+  </div>
+<!-- Form to update savings info -->
+<form method="POST">
+
+  <h3>Create a New Savings Goal</h3>
+  <div class="mb-3">
+    <label for="item" class="form-label">Item to Save For</label>
+    <input type="text" class="form-control" id="item" name="home1" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="amount" class="form-label">Target Amount (£)</label>
+    <input type="number" class="form-control" id="amount" name="home2" step="0.01" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="start" class="form-label">Start Date</label>
+    <input type="date" class="form-control" id="start" name="home3" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="end" class="form-label">End Date</label>
+    <input type="date" class="form-control" id="end" name="home4" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save Details</button>
+</form>
+{% endblock %}

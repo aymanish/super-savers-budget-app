@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h2>Update Your Financial Information</h2>
+
+<form method="POST">
+  <div class="mb-3">
+    <label for="income" class="form-label">Monthly Income (£)</label>
+    <input type="number" class="form-control" id="income" name="income" step="0.01" value="{{ income }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="expenses" class="form-label">Monthly Expenses (£)</label>
+    <input type="number" class="form-control" id="expenses" name="monthly_expenses" step="0.01" value="{{ monthly_expenses }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="deposit" class="form-label">Current Deposit (£)</label>
+    <input type="number" class="form-control" id="deposit" name="current_deposit" step="0.01" value="{{ current_deposit }}" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Update Information</button>
+</form>
+{% endblock %}

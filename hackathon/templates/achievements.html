@@ -1,0 +1,68 @@
+<!--NEW CODE-->
+{% extends "base.html" %}
+
+{% block title %}Achievements{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>SAVINGS GOALS/ACHIEVEMENTS</h2>
+    
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <!-- Achievement 1 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Achievement 1: FIRST SAVE
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    Yay! You unlocked the first milestone for making your first savings.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Achievement 2 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Achievement 2: Double Trouble
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    YOU'RE ON A ROLL! You unlocked the second milestone for doubling your savings.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Achievement 3 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Achievement 3: 100,000 MILESTONE!
+                </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    WOW! You're practically a savings veteran for reaching the milestone to save up £100,000!
+                </div>
+            </div>
+        </div>
+        
+        <!-- Achievement 4 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                    Achievement 4: 50 DAY STREAK
+                </button>
+            </h2>
+            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    Talk about forming good habits. You've been saving for 50 days non-stop!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

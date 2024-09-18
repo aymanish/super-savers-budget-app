@@ -1,0 +1,73 @@
+<!--NEW CODE-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Super Savers{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">CLEO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/home' %}active{% endif %}" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/savings' %}active{% endif %}" href="/savings">Savings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/milestones' %}active{% endif %}" href="/milestones">Milestones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/achievements' %}active{% endif %}" href="/achievements">Achievements</a>
+                    </li>
+                    <li class="nav-item">
+                    </li>
+                        <a class="nav-link {% if request.path == '/achievements' %}active{% endif %}" href="/profile">Profile</a>
+                    </li>
+                    <!-- Add logic on nav bar to trigger the update -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/update_savings">Simulate Daily Update</a>
+                    </li>
+
+                </ul>
+                <span class="navbar-text">
+                    {% if session.username %}
+                        Logged in as: <strong>{{ session.username }}</strong>
+                        <a href="{{ url_for('logout') }}" class="nav-link d-inline">Logout</a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+                    {% endif %}
+                </span>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Heading -->
+    <header class="container">
+        <h1 class="mt-5">SUPER SAVERS</h1>
+    </header>
+
+    <!-- Content Block -->
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</body>
+</html>
